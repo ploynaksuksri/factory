@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 
@@ -21,9 +22,9 @@ namespace WebApplication.Data.Repositories
             return _dbContext.Set<TEntity>().Find(id);
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public List<TEntity> GetAll()
         {
-            return _dbContext.Set<TEntity>();
+            return _dbContext.Set<TEntity>().ToList();
         }
 
         TEntity IRepository<TEntity>.Add(TEntity obj)

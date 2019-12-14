@@ -13,7 +13,7 @@ namespace WebApplication.Data.Repositories
         //Task Delete(int id);
         //Task SaveChanges();
 
-        IEnumerable<TEntity> GetAll();
+        List<TEntity> GetAll();
         TEntity Get(int id);
         TEntity Add(TEntity obj);
         void Update(TEntity obj);

@@ -1,17 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebApplication.Data.Models;
 using System;
+using System.Linq;
 
 namespace WebApplication.Data
 {
     public class MyDbContext : DbContext
     {
 
-        public DbSet<Manufacturer> Manufacturers { get; set; }
-        public DbSet<VehicleModel> VehicleModels { get; set; }
+        public virtual DbSet<Manufacturer> Manufacturers { get; set; }
+        public virtual DbSet<VehicleModel> VehicleModels { get; set; }
 
 
-        public MyDbContext()
+        public  MyDbContext()
         {
             
         }
@@ -23,9 +24,22 @@ namespace WebApplication.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseInMemoryDatabase(databaseName: "Factory");
+            base.OnConfiguring(options);
         }
 
-        
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            Db.GetManufacturers().ForEach(manu =>
+            {
+                modelBuilder.Entity<Manufacturer>().HasData(manu);
+            });
+
+            Db.GetModels().ForEach(model =>
+            {
+                modelBuilder.Entity<VehicleModel>().HasData(model);
+            });
+        }
+
+
     }
 }
