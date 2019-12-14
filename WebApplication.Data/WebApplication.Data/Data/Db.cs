@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using WebApplication.Services.Models;
+using WebApplication.Data.Models;
 
-namespace WebApplication.Services
+namespace WebApplication.Data
 {
     public static class Db
     {

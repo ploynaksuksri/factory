@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using WebApplication.Services.Models;
+using WebApplication.Data.Models;
 
 namespace WebApplication.Services.Abstract
 {

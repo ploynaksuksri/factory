@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using WebApplication.Services.Abstract;
-using WebApplication.Services.Models;
+using WebApplication.Data.Models;
+using WebApplication.Data;
 
 namespace WebApplication.Services.Concrete
 {

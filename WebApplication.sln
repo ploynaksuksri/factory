@@ -1,15 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.757
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication", "WebApplication\WebApplication.csproj", "{74065A66-62A9-4255-9F67-0DDC7951AB12}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{08D8FF1F-D80D-41BC-9756-A80692429E16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication.Services", "WebApplication.Services\WebApplication.Services.csproj", "{4B305DE8-2DE4-42CF-8C7B-8B7CEBDF7C16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication.Services", "WebApplication.Services\WebApplication.Services.csproj", "{4B305DE8-2DE4-42CF-8C7B-8B7CEBDF7C16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication.Services.Tests", "WebApplication.Services.Tests\WebApplication.Services.Tests.csproj", "{92F03385-0A8D-4719-8450-02A75FAF0F7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication.Services.Tests", "WebApplication.Services.Tests\WebApplication.Services.Tests.csproj", "{92F03385-0A8D-4719-8450-02A75FAF0F7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication.Data", "WebApplication.Data\WebApplication.Data\WebApplication.Data.csproj", "{765FBE82-69D2-449A-9667-1BCDA9BCDDF2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{92F03385-0A8D-4719-8450-02A75FAF0F7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92F03385-0A8D-4719-8450-02A75FAF0F7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92F03385-0A8D-4719-8450-02A75FAF0F7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{765FBE82-69D2-449A-9667-1BCDA9BCDDF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{765FBE82-69D2-449A-9667-1BCDA9BCDDF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{765FBE82-69D2-449A-9667-1BCDA9BCDDF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{765FBE82-69D2-449A-9667-1BCDA9BCDDF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

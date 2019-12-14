@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WebApplication.Data\WebApplication.Data\WebApplication.Data.csproj" />
     <ProjectReference Include="..\WebApplication.Services\WebApplication.Services.csproj" />
   </ItemGroup>
 
