@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using WebApplication.Services.Abstract;
+using WebApplication.Services.Concrete;
 
 namespace WebApplication.Services.Tests
 {
@@ -9,6 +10,7 @@ namespace WebApplication.Services.Tests
         [SetUp]
         public void Setup()
         {
+            _stringService = new StringService();
         }
 
         //todo: fix test

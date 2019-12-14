@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using WebApplication.Services.Abstract;
+
 
 namespace WebApplication.Services.Concrete
 {
@@ -7,12 +9,24 @@ namespace WebApplication.Services.Concrete
     {
         public bool IsPalindrome(string value)
         {
-            throw new NotImplementedException();
+            var left = 0;
+            var right = value.Length - 1;
+            while (true)
+            {
+                if (left > right)
+                    return true; 
+
+                if (value[left] != value[right])
+                    return false;
+                left++;
+                right--;
+            }
         }
 
         public string ReverseWords(string value)
         {
-            throw new NotImplementedException();
+            var words = value.Split(' ');
+            return string.Join(" ", words.Reverse());         
         }
     }
 }
