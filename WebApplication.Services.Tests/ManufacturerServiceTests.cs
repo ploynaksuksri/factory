@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
+using WebApplication.Data;
+using WebApplication.Data.Repositories;
 using WebApplication.Services.Abstract;
 using WebApplication.Services.Concrete;
+using WebApplication.Data.Models;
 
 namespace WebApplication.Services.Tests
 {
@@ -15,12 +19,22 @@ namespace WebApplication.Services.Tests
 
         public ManufacturerServiceTests()
         {
+            
         }
+
 
         [SetUp]
         public void Setup()
         {
+            var options = new DbContextOptionsBuilder<MyDbContext>()
+                .UseInMemoryDatabase(databaseName: "Factory")
+                .Options;
+            var context = new MyDbContext(options);
+            context.Database.EnsureCreated();
+            _manufacturerService = new ManufacturerService(new MyDataProvider(context));
         }
+
+
         //todo: fix test
         [TestCase("488GTB", "FERRARI")]
         [TestCase("A8ハイブリッド", "AUDI")]
