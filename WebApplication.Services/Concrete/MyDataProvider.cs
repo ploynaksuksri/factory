@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using WebApplication.Data;
 using WebApplication.Data.Models;
-using WebApplication.Data.Repositories;
 using WebApplication.Services.Abstract;
 
 namespace WebApplication.Services.Concrete
