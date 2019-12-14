@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Net.Sockets;
-using System.Runtime.ExceptionServices;
 using WebApplication.Services.Abstract;
+using WebApplication.Services.Dto;
 
 namespace WebApplication.Services.Concrete
 {
@@ -20,10 +20,9 @@ namespace WebApplication.Services.Concrete
             return _dataProvider.Models.FirstOrDefault(m => m.ModelName == model)?.Manufacturer?.ManufacturerName;
         }
 
-        public Tuple<string, string, int> GetManufacturersWithModelCount()
+        public List<ManufacturersDto> GetManufacturersWithModelCount()
         {
-            var x = _dataProvider.Models.GroupBy(m => m.Manufacturer).Select(n => new { One = n.Key, Two = n.Count() });
-            throw new NotImplementedException();
+           return _dataProvider.Models.GroupBy(m => m.Manufacturer).Select(n => new ManufacturersDto { Manufacturer = n.Key, NoOfModels = n.Count() }).ToList();
         }
     }
 }
