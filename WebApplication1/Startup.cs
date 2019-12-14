@@ -1,18 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.Swagger;
 using WebApplication.Data;
+using WebApplication.Data.Models;
+using WebApplication.Data.Repositories;
+using WebApplication.Services.Abstract;
+using WebApplication.Services.Concrete;
 
 namespace WebApplication1
 {
@@ -29,11 +26,17 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<MyDbContext>();
+
+            services.AddDbContext<MyDbContext>(options =>
+                options.UseSqlServer("Server=localhost;Database=Factory;Trusted_Connection=True;"));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
+
+            services.AddTransient<IDataProvider, MyDataProvider>();
+            services.AddTransient<IManufacturerService, ManufacturerService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,8 +63,6 @@ namespace WebApplication1
             {
                 endpoints.MapControllers();
             });
-
-          
         }
     }
 }
